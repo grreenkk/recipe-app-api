@@ -24,13 +24,14 @@ class AdminSiteTests(TestCase):
         url = reverse('admin:core_user_changelist')
         response = self.client.get(url)
 
-        self.assertContains(response, self.user.name)
+        self.assertContains(response, self.user.name)#This checks that a 200 http reponse is gotten
+        # and that, the user name is in the client
         self.assertContains(response, self.user.email)
 
 
     def test_user_change_page(self):
         """Test that the user edit page works"""
-        url = reverse('admin:core_user_change', args=[self.user.id])# /admin/score.user/id(id of the user)
+        url = reverse('admin:core_user_change', args=[self.user.id])# /admin/core.user/id(id of the user)
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
