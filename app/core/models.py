@@ -12,7 +12,7 @@ class UserManager(BaseUserManager):  # This is the manager class that manager cr
         user.set_password(password)  # This creates the password
         user.save(using=self._db)  # This saves the model
 
-        return user  # This returns the new user that has just been created
+        return user # This returns the new user that has just been created
 
     def create_superuser(self, email, password):
         """Creates and saves a new superuser"""
